@@ -1,0 +1,159 @@
+% \file{locale/fithesis-spanish.def}
+% This is the base file of the Spanish locale.\iffalse
+%<*base>
+% \fi\begin{macrocode}
+\ProvidesFile{fithesis/locale/fithesis-spanish.def}[2019/03/04]
+%    \end{macrocode}
+% The locale file defines all the private macros mandated by the
+% locale file interface.
+% \begin{macrocode}
+
+% Placeholders
+\gdef\thesis@spanish@universityName{XXX}
+\gdef\thesis@spanish@facultyName{XXX}
+\gdef\thesis@spanish@assignment{XXX}
+\gdef\thesis@spanish@declaration{XXX}
+
+% Csquotes style
+\gdef\thesis@spanish@csquotesStyle{spanish}
+
+% Time strings
+\gdef\thesis@spanish@spring{Spring}
+\gdef\thesis@spanish@fall{Fall}
+\gdef\thesis@spanish@semester{%
+  \thesis@{spanish@\thesis@season} \thesis@seasonYear}
+\gdef\thesis@spanish@formattedDate{{%
+  \thesis@day.
+  \newcount\@month\expandafter\@month\thesis@month\relax
+  \ifnum\@month=1%
+    January
+  \else\ifnum\@month=2%
+    February
+  \else\ifnum\@month=3%
+    March
+  \else\ifnum\@month=4%
+    April
+  \else\ifnum\@month=5%
+    May
+  \else\ifnum\@month=6%
+    June
+  \else\ifnum\@month=7%
+    July
+  \else\ifnum\@month=8%
+    August
+  \else\ifnum\@month=9%
+    September
+  \else\ifnum\@month=10%
+    October
+  \else\ifnum\@month=11%
+    November
+  \else\ifnum\@month=12%
+    December
+  \else
+    <<unknown month (\the\@month)>>
+  \fi\fi\fi\fi\fi\fi
+  \fi\fi\fi\fi\fi\fi
+  \thesis@year}}
+
+% Miscellaneous
+\gdef\thesis@spanish@authorSignature{Author's signature}
+\gdef\thesis@spanish@fieldTitle{Field of study}
+\gdef\thesis@spanish@advisorTitle{Advisor}
+\gdef\thesis@spanish@authorTitle{Author}
+\gdef\thesis@spanish@abstractTitle{Abstract}
+\gdef\thesis@spanish@keywordsTitle{Keywords}
+\gdef\thesis@spanish@thanksTitle{Acknowledgements}
+\gdef\thesis@spanish@declarationTitle{Declaration}
+\gdef\thesis@spanish@idTitle{ID}
+\gdef\thesis@spanish@typeName@sempaper{Seminar Paper}
+\gdef\thesis@spanish@typeName@bachelors{Bachelor's Thesis}
+\gdef\thesis@spanish@typeName@masters{Master's Thesis}
+\gdef\thesis@spanish@typeName@proposal{Thesis Proposal}
+\gdef\thesis@spanish@typeName@doctoral{Doctoral Thesis}
+\gdef\thesis@spanish@typeName@rigorous{Rigorous Thesis}
+\gdef\thesis@spanish@typeName{%
+  \ifx\thesis@type\thesis@sempaper
+    \thesis@spanish@typeName@sempaper
+  \else\ifx\thesis@type\thesis@bachelors
+    \thesis@spanish@typeName@bachelors
+  \else\ifx\thesis@type\thesis@masters
+    \thesis@spanish@typeName@masters
+  \else\ifx\thesis@type\thesis@proposal
+    \thesis@spanish@typeName@proposal
+  \else\ifx\thesis@type\thesis@doctoral
+    \thesis@spanish@typeName@doctoral
+  \else\ifx\thesis@type\thesis@rigorous
+    \thesis@spanish@typeName@rigorous
+  \else
+    <<Unknown thesis type (\thesis@type)>>%
+  \fi\fi\fi\fi\fi\fi}
+%    \end{macrocode}\iffalse
+%</base>
+% \fi\file{locale/mu/fithesis-spanish.def}
+% This is the Spanish locale file specific to the Masaryk
+% University in Brno. It replaces the \texttt{universityName}
+% placeholder with the correct value and defines the
+% \texttt{declaration} and \texttt{idTitle} strings.
+% \iffalse
+%<*mu>
+% \fi\begin{macrocode}
+\ProvidesFile{fithesis/locale/mu/fithesis-spanish.def}[2019/03/04]
+\gdef\thesis@spanish@universityName{Masaryk University}
+\gdef\thesis@spanish@declaration{%
+  Hereby I declare that this paper is my original authorial work,
+  which I have worked out on my own. All sources, references, and
+  literature used or excerpted during elaboration of this work are
+  properly cited and listed in complete reference to the due source.}
+
+% Placeholders
+\gdef\thesis@spanish@assignment{%
+  \ifthesis@digital@
+  \else
+  \fi}
+\gdef\thesis@spanish@assignment{%
+  \ifthesis@blocks@assignment@hideIfDigital@
+    \ifthesis@digital@
+      This is where a copy of the official signed thesis assignment
+      is located in the printed version of the document.
+    \else
+      Replace this page with a copy of the official signed thesis
+      assignment.
+    \fi
+  \else
+    Set the PDF document containing the official signed thesis
+    assignment using the <<assignment>> key.
+  \fi}
+
+% Bibliographic entry
+\gdef\thesis@spanish@bib@title{Bibliographic record}
+\gdef\thesis@spanish@bib@pages{p}
+\global\let\thesis@spanish@bib@author\thesis@spanish@authorTitle
+\gdef\thesis@spanish@bib@thesisTitle{Title of Thesis}
+\gdef\thesis@spanish@bib@advisor{Supervisor}
+
+% Miscellaneous
+\gdef\thesis@spanish@idTitle{UČO}
+%    \end{macrocode}\iffalse
+%</mu>
+% \fi\file{locale/mu/phil/fithesis-spanish.def}
+% This is the English locale file specific to the Faculty of
+% Arts at the Masaryk University in Brno.
+% It replaces the \texttt{facultyName} placeholder with the
+% correct value. It also defines the \texttt{departmentName}
+% string, which is used by the \texttt{style/mu/fithesis-phil^^A
+% .sty} style file, when typesetting the names of known
+% departments.
+% \iffalse
+%<*mu/phil>
+% \fi\begin{macrocode}
+\ProvidesFile{fithesis/locale/mu/phil/fithesis-spanish.def}[2016/03/22]
+\gdef\thesis@spanish@facultyName{Faculty of Arts}
+\gdef\thesis@spanish@departmentName{%
+  \ifx\thesis@department\thesis@departments@kisk
+    Division of Information and Library Studies%
+  \else
+    <<Unknown department (\thesis@department)>>%
+  \fi}
+%    \end{macrocode}\iffalse
+%</mu/phil>
+% \fi

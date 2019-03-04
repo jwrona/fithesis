@@ -1,4 +1,4 @@
-LOGS=czech.log slovak.log english.log
+LOGS=czech.log slovak.log english.log spanish.log
 DIRECTORIES=mu/law mu/fsps mu/fss mu/econ mu/med mu/fi mu/phil \
 	mu/ped mu/sci mu
 OUTPUT=fithesis-czech.def mu/law/fithesis-czech.def \
@@ -13,6 +13,7 @@ OUTPUT=fithesis-czech.def mu/law/fithesis-czech.def \
 	mu/fi/fithesis-slovak.def mu/fi/fithesis-english.def \
 	mu/phil/fithesis-czech.def mu/phil/fithesis-slovak.def \
 	mu/phil/fithesis-english.def mu/fithesis-slovak.def \
+	mu/phil/fithesis-spanish.def \
 	mu/ped/fithesis-czech.def mu/ped/fithesis-slovak.def \
 	mu/ped/fithesis-english.def mu/fithesis-english.def \
 	mu/sci/fithesis-czech.def mu/sci/fithesis-slovak.def \

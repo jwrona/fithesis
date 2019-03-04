@@ -13,9 +13,9 @@ PDFLOGOS=logo/*/*.pdf
 LOGOS=$(EPSLOGOS) $(PDFLOGOS)
 LOCALES=locale/*.def locale/*/*.def locale/*/*/*.def
 DTXFILES=*.dtx locale/czech.dtx locale/english.dtx \
-	locale/slovak.dtx style/*.dtx style/*/*.dtx
+	locale/slovak.dtx locale/spanish.dtx style/*.dtx style/*/*.dtx
 INSFILES=*.ins locale/czech.ins locale/english.ins \
-	locale/slovak.ins style/*.ins style/*/*.ins
+	locale/slovak.ins locale/spanish.ins style/*.ins style/*/*.ins
 TESTS=test/*.tex test/mu/compare/*.pdf test/mu/compare/*.tex \
 	test/mu/compare-example/*.pdf test/mu/comparepdf.sh \
 	test/mu/update-tests.sh
