@@ -6,71 +6,85 @@
 %    \end{macrocode}
 % The locale file defines all the private macros mandated by the
 % locale file interface.
-% \begin{macrocode}
+% \begin{macro}{\thesis@spanish@gender@koncovka}
+% The locale file also defines the |\thesis@spanish@gender@koncovka|
+% macro, which expands to the correct verb ending based on the
+% value of the |\thesis@ifwoman| macro and the
+% \end{macro}\begin{macro}{\thesis@spanish@typeName@akuzativ}
+% |\thesis@spanish@typeName@akuzativ| containing the accusative case
+% of the thesis type name.
+% \end{macro}\begin{macrocode}
 
-% Placeholders
-\gdef\thesis@spanish@universityName{XXX}
-\gdef\thesis@spanish@facultyName{XXX}
-\gdef\thesis@spanish@assignment{XXX}
-\gdef\thesis@spanish@declaration{XXX}
+% Pomocná makra
+\gdef\thesis@spanish@gender@koncovka{%
+  \ifthesis@woman a\fi}
 
-% Csquotes style
+% Csquotes styl
 \gdef\thesis@spanish@csquotesStyle{spanish}
 
-% Time strings
-\gdef\thesis@spanish@spring{Spring}
-\gdef\thesis@spanish@fall{Fall}
+% Zástupné texty
+\gdef\thesis@spanish@universityName{Název univerzity}
+\gdef\thesis@spanish@facultyName{Název fakulty}
+\gdef\thesis@spanish@assignment{%
+  Na tomto místě se v~tištěné práci nachází oficiální podepsané
+  zadání práce.}
+\gdef\thesis@spanish@declaration{Text prohlášení ...}
+
+% Časové údaje
+\gdef\thesis@spanish@spring{jaro}
+\gdef\thesis@spanish@fall{podzim}
 \gdef\thesis@spanish@semester{%
   \thesis@{spanish@\thesis@season} \thesis@seasonYear}
 \gdef\thesis@spanish@formattedDate{{%
   \thesis@day.
   \newcount\@month\expandafter\@month\thesis@month\relax
   \ifnum\@month=1%
-    January
+    ledna
   \else\ifnum\@month=2%
-    February
+    února
   \else\ifnum\@month=3%
-    March
+    března
   \else\ifnum\@month=4%
-    April
+    dubna
   \else\ifnum\@month=5%
-    May
+    května
   \else\ifnum\@month=6%
-    June
+    června
   \else\ifnum\@month=7%
-    July
+    července
   \else\ifnum\@month=8%
-    August
+    srpna
   \else\ifnum\@month=9%
-    September
+    září
   \else\ifnum\@month=10%
-    October
+    října
   \else\ifnum\@month=11%
-    November
+    listopadu
   \else\ifnum\@month=12%
-    December
+    prosince
   \else
-    <<unknown month (\the\@month)>>
+    <<neznámý měsíc (\the\@month)>>
   \fi\fi\fi\fi\fi\fi
   \fi\fi\fi\fi\fi\fi
   \thesis@year}}
 
-% Miscellaneous
-\gdef\thesis@spanish@authorSignature{Author's signature}
-\gdef\thesis@spanish@fieldTitle{Field of study}
-\gdef\thesis@spanish@advisorTitle{Advisor}
-\gdef\thesis@spanish@authorTitle{Author}
-\gdef\thesis@spanish@abstractTitle{Abstract}
-\gdef\thesis@spanish@keywordsTitle{Keywords}
-\gdef\thesis@spanish@thanksTitle{Acknowledgements}
-\gdef\thesis@spanish@declarationTitle{Declaration}
+% Různé
+\gdef\thesis@spanish@authorSignature{%
+  Podpis autor\ifthesis@woman ky\else a\fi}
+\gdef\thesis@spanish@fieldTitle{Obor}
+\gdef\thesis@spanish@advisorTitle{Vedoucí práce}
+\gdef\thesis@spanish@authorTitle{Autor}
+\gdef\thesis@spanish@abstractTitle{Shrnutí}
+\gdef\thesis@spanish@keywordsTitle{Klíčová slova}
+\gdef\thesis@spanish@thanksTitle{Agradecimientos}
+\gdef\thesis@spanish@declarationTitle{Prohlášení}
 \gdef\thesis@spanish@idTitle{ID}
-\gdef\thesis@spanish@typeName@sempaper{Seminar Paper}
-\gdef\thesis@spanish@typeName@bachelors{Bachelor's Thesis}
-\gdef\thesis@spanish@typeName@masters{Master's Thesis}
-\gdef\thesis@spanish@typeName@proposal{Thesis Proposal}
-\gdef\thesis@spanish@typeName@doctoral{Doctoral Thesis}
-\gdef\thesis@spanish@typeName@rigorous{Rigorous Thesis}
+\gdef\thesis@spanish@typeName@sempaper{Seminární práce}
+\gdef\thesis@spanish@typeName@bachelors{Bakalářská práce}
+\gdef\thesis@spanish@typeName@masters{Diplomová práce}
+\gdef\thesis@spanish@typeName@proposal{Teze závěrečné práce}
+\gdef\thesis@spanish@typeName@doctoral{Disertační práce}
+\gdef\thesis@spanish@typeName@rigorous{Rigorózní práce}
 \gdef\thesis@spanish@typeName{%
   \ifx\thesis@type\thesis@sempaper
     \thesis@spanish@typeName@sempaper
@@ -85,7 +99,29 @@
   \else\ifx\thesis@type\thesis@rigorous
     \thesis@spanish@typeName@rigorous
   \else
-    <<Unknown thesis type (\thesis@type)>>%
+    <<Neznámý typ práce (\thesis@type)>>%
+  \fi\fi\fi\fi\fi\fi}
+\gdef\thesis@spanish@typeName@akuzativ@sempaper{Seminární práci}
+\gdef\thesis@spanish@typeName@akuzativ@bachelors{Bakalářskou práci}
+\gdef\thesis@spanish@typeName@akuzativ@masters{Diplomovou práci}
+\gdef\thesis@spanish@typeName@akuzativ@proposal{Tezi závěrečné práce}
+\gdef\thesis@spanish@typeName@akuzativ@doctoral{Disertační práci}
+\gdef\thesis@spanish@typeName@akuzativ@rigorous{Rigorózní práci}
+\gdef\thesis@spanish@typeName@akuzativ{%
+  \ifx\thesis@type\thesis@sempaper
+    \thesis@spanish@typeName@akuzativ@sempaper
+  \else\ifx\thesis@type\thesis@bachelors
+    \thesis@spanish@typeName@akuzativ@bachelors
+  \else\ifx\thesis@type\thesis@masters
+    \thesis@spanish@typeName@akuzativ@masters
+  \else\ifx\thesis@type\thesis@proposal
+    \thesis@spanish@typeName@akuzativ@proposal
+  \else\ifx\thesis@type\thesis@doctoral
+    \thesis@spanish@typeName@akuzativ@doctoral
+  \else\ifx\thesis@type\thesis@rigorous
+    \thesis@spanish@typeName@akuzativ@rigorous
+  \else
+    <<Neznámý typ práce (\thesis@type)>>%
   \fi\fi\fi\fi\fi\fi}
 %    \end{macrocode}\iffalse
 %</base>
@@ -98,62 +134,102 @@
 %<*mu>
 % \fi\begin{macrocode}
 \ProvidesFile{fithesis/locale/mu/fithesis-spanish.def}[2019/03/04]
-\gdef\thesis@spanish@universityName{Masaryk University}
-\gdef\thesis@spanish@declaration{%
-  Hereby I declare that this paper is my original authorial work,
-  which I have worked out on my own. All sources, references, and
-  literature used or excerpted during elaboration of this work are
-  properly cited and listed in complete reference to the due source.}
 
-% Placeholders
-\gdef\thesis@spanish@assignment{%
-  \ifthesis@digital@
-  \else
-  \fi}
+% Zástupné texty
+\gdef\thesis@spanish@universityName{Masarykova univerzita}
+\gdef\thesis@spanish@declaration{Prohlašuji, že jsem
+  \thesis@lower{spanish@typeName@akuzativ} zpracoval%
+  \thesis@spanish@gender@koncovka\ samostatně a~%
+  použil\thesis@spanish@gender@koncovka\ jen prameny
+  uvedené v~seznamu literatury. Zároveň prohlašuji, že se tištěná verze práce
+  shoduje s její elektronickou verzí uloženou v Informačním systému MU.}
 \gdef\thesis@spanish@assignment{%
   \ifthesis@blocks@assignment@hideIfDigital@
     \ifthesis@digital@
-      This is where a copy of the official signed thesis assignment
-      is located in the printed version of the document.
+      Na tomto místě se v~tištěné práci nachází oficiální podepsané
+      zadání práce.
     \else
-      Replace this page with a copy of the official signed thesis
-      assignment.
+      Místo tohoto listu vložte kopii oficiálního podepsaného zadání
+      práce.
     \fi
   \else
-    Set the PDF document containing the official signed thesis
-    assignment using the <<assignment>> key.
+    Nastavte pomocí klíče <<assignment>> název PDF souboru
+    s~oficiálním podepsaným zadáním práce.
   \fi}
 
-% Bibliographic entry
-\gdef\thesis@spanish@bib@title{Bibliographic record}
-\gdef\thesis@spanish@bib@pages{p}
+% Bibliografický záznam
+\gdef\thesis@spanish@bib@title{Bibliografický záznam}
+\gdef\thesis@spanish@bib@pages{str}
 \global\let\thesis@spanish@bib@author\thesis@spanish@authorTitle
-\gdef\thesis@spanish@bib@thesisTitle{Title of Thesis}
-\gdef\thesis@spanish@bib@advisor{Supervisor}
+\gdef\thesis@spanish@bib@thesisTitle{Název práce}
+\global\let\thesis@spanish@bib@advisor\thesis@spanish@advisorTitle
 
-% Miscellaneous
+% Různé
 \gdef\thesis@spanish@idTitle{UČO}
 %    \end{macrocode}\iffalse
 %</mu>
 % \fi\file{locale/mu/phil/fithesis-spanish.def}
-% This is the English locale file specific to the Faculty of
+% This is the Spanish locale file specific to the Faculty of
 % Arts at the Masaryk University in Brno.
 % It replaces the \texttt{facultyName} placeholder with the
-% correct value. It also defines the \texttt{departmentName}
+% correct value. It also redefines the \texttt{declaration},
+% \texttt{typeName} and \texttt{typeName@akuzativ} strings in
+% accordance with the requirements of the faculty.
+%
+% The locale file also defines the \texttt{departmentName}
 % string, which is used by the \texttt{style/mu/fithesis-phil^^A
 % .sty} style file, when typesetting the names of known
 % departments.
 % \iffalse
 %<*mu/phil>
 % \fi\begin{macrocode}
-\ProvidesFile{fithesis/locale/mu/phil/fithesis-spanish.def}[2016/03/22]
-\gdef\thesis@spanish@facultyName{Faculty of Arts}
+\ProvidesFile{fithesis/locale/mu/phil/fithesis-spanish.def}[2019/03/04]
+
+% Zástupné texty
+\gdef\thesis@spanish@facultyName{Filozofická fakulta}
 \gdef\thesis@spanish@departmentName{%
   \ifx\thesis@department\thesis@departments@kisk
-    Division of Information and Library Studies%
+    Kabinet informačních studií a knihovnictví%
   \else
-    <<Unknown department (\thesis@department)>>%
+    <<Neznámé oddělení (\thesis@department)>>%
   \fi}
+\gdef\thesis@spanish@declaration{%
+  \ifx\thesis@department\thesis@departments@kisk
+    Prohlašuji, že jsem předkládanou práci zpracoval%
+    \thesis@spanish@gender@koncovka\ samostatně a~použil%
+    \thesis@spanish@gender@koncovka\ jen uvedené prameny a~%
+    literaturu. Současně dávám svolení k~tomu, aby elektronická
+    verze této práce byla zpřístupněna přes informační systém
+    Masarykovy univerzity.%
+  \else
+    Prohlašuji, že jsem \thesis@lower{spanish@typeName@akuzativ}
+    vypracoval\thesis@spanish@gender@koncovka\ samostatně s~využitím
+    uvedené literatury. Zároveň prohlašuji, že se tištěná verze práce shoduje s
+    její elektronickou verzí uloženou v Informačním systému MU.%
+  \fi}
+
+% Ostatní
+\global\let\thesis@spanish@typeName@super
+  \thesis@spanish@typeName
+\gdef\thesis@spanish@typeName{%
+  \ifx\thesis@type\thesis@bachelors
+    Bakalářská diplomová práce%
+  \else\ifx\thesis@type\thesis@masters
+    Magisterská diplomová práce%
+  \else
+    \thesis@spanish@typeName@super
+  \fi\fi}
+
+\global\let\thesis@spanish@typeName@akuzativ@super
+  \thesis@spanish@typeName@akuzativ
+\gdef\thesis@spanish@typeName@akuzativ{%
+  \ifx\thesis@type\thesis@bachelors
+    Diplomovou práci%
+  \else\ifx\thesis@type\thesis@masters
+    Diplomovou práci%
+  \else
+    \thesis@spanish@typeName@akuzativ@super
+  \fi\fi}
 %    \end{macrocode}\iffalse
 %</mu/phil>
 % \fi
